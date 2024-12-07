@@ -58,18 +58,13 @@ for i, question in enumerate(questions):
     data["s2"][question] = st.session_state.answers[answer_key]
 
 
-# irs = ItineraryResolver()  # IRS object to handle LLM stuff
 if st.button("Submit Section 2"):
-    print("\n\n\n\n")
-    # print(json.dumps(data, indent=2))
-
     result_panel = st.empty()
     result_panel.info("Generating itinerary...")
 
     iris.update_data(data)
     results = iris.ProcessPreference()
 
-    # Update the panel with results
     result_panel.success("Here you go!")
     st.write("Here are the processed results:")
     st.write(results)
